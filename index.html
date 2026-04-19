@@ -899,10 +899,44 @@ function runCalcSilent(){
 }
 
 document.querySelectorAll('.calc-bd input[type=number]').forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter')runCalc();}));
-function submitForm(e){
+function submitForm(e) {
   e.preventDefault();
-  document.getElementById('cont-form').style.display='none';
-  document.getElementById('form-ok').style.display='block';
+  
+  const form = document.getElementById('cont-form');
+  const btn = form.querySelector('.form-sub');
+  const originalText = btn.textContent;
+  
+  // 버튼 비활성화 (중복 클릭 방지)
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+
+  // 폼 데이터 수집 (input 순서 기준)
+  const inputs = form.querySelectorAll('input');
+  const select = form.querySelector('select');
+  const textarea = form.querySelector('textarea');
+
+  const templateParams = {
+    brand_name: inputs[0].value,    // 브랜드명
+    manager_name: inputs[1].value,  // 담당자명
+    user_email: inputs[2].value,    // 이메일
+    service_type: select.value,     // 문의 서비스
+    message: textarea.value,        // 남기실 말씀
+    to_email: 'jhan8326@gmail.com'  // 수신 이메일
+  };
+
+  // EmailJS 발송
+  emailjs.send('service_jnhueud', 'template_7irsotl', templateParams)
+    .then(function() {
+      // 성공 시
+      form.style.display = 'none';
+      document.getElementById('form-ok').style.display = 'block';
+    }, function(error) {
+      // 실패 시
+      console.error('EmailJS Error:', error);
+      alert('메일 발송에 실패했습니다. hello@stance.asia로 직접 문의 부탁드립니다.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
 }
 </script>
 </body>
