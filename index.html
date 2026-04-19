@@ -858,21 +858,28 @@ function calcCore(){
   const margin=(net-totalFee-cost-misc-(retail*ad/100))*(1-ret/100)-(retLoss*(ret/100));
   const rate=(margin/net)*100;
   const ltv=margin*repeat;
-  const cac=newC>0?(retail*ad/100)/(newC/100):0;
-  const ratio=cac>0?ltv/cac:0;
-  return{margin,rate,ltv,cac,ratio,wacc};
+  const noAd=ad<=0;
+  const cac=(!noAd&&newC>0)?(retail*ad/100)/(newC/100):null;
+  const ratio=(cac!==null&&cac>0)?ltv/cac:null;
+  return{margin,rate,ltv,cac,ratio,wacc,noAd};
 }
 
 /* ── 결과 렌더 ── */
 function renderResult(r){
-  const{margin,rate,ltv,cac,ratio,wacc}=r;
+  const{margin,rate,ltv,cac,ratio,wacc,noAd}=r;
   document.getElementById('r-margin').textContent=Math.round(margin).toLocaleString('ko-KR');
   document.getElementById('r-rate').textContent=rate.toFixed(1)+'%';
   document.getElementById('r-ltv').textContent=Math.round(ltv).toLocaleString('ko-KR')+'원';
-  document.getElementById('r-cac').textContent=cac>0?Math.round(cac).toLocaleString('ko-KR')+'원':'N/A';
-  document.getElementById('r-ratio').textContent=cac>0?ratio.toFixed(2):'N/A';
+  document.getElementById('r-cac').textContent=noAd?'광고없음':(cac!==null?Math.round(cac).toLocaleString('ko-KR')+'원':'N/A');
+  document.getElementById('r-ratio').textContent=noAd?'광고없음':(ratio!==null?ratio.toFixed(2):'N/A');
 
-  const zk=(ratio<1||rate<wacc)?'red':(ratio<3?'yellow':'green');
+  // 광고비 0이면 LTV/CAC 기준 제외, 실질마진율 vs WACC만으로 Zone 판별
+  let zk;
+  if(noAd){
+    zk=rate>=wacc?'green':'red';
+  }else{
+    zk=(ratio===null||ratio<1||rate<wacc)?'red':(ratio<3?'yellow':'green');
+  }
   const z=ZONES[zk];
 
   // 색상 클래스
