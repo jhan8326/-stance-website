@@ -144,9 +144,8 @@ h1.hero-title em{font-style:normal;color:var(--amber);}
 /* ── FOUNDER ── */
 .founder-sec{background:var(--ink2);}
 .founder-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center;}
-.founder-photo{background:var(--panel);border-radius:12px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted);border:1px solid var(--border);}
-.founder-photo svg{opacity:.25;}
-.founder-photo span{font-size:12px;letter-spacing:.1em;}
+.founder-photo{background:var(--panel);border-radius:12px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted);border:1px solid var(--border); overflow:hidden; padding:0;}
+.founder-photo img{width:100%;height:100%;object-fit:cover;}
 .interview{display:flex;flex-direction:column;gap:32px;}
 .qa{border-left:2px solid rgba(232,160,69,.3);padding-left:20px;}
 .qa-q{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
@@ -233,7 +232,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">ST<span>A</span>NCE</a>
   <ul class="nav-menu">
@@ -245,13 +243,10 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <!-- 데이터 작업공간 배경 SVG -->
     <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <rect width="1440" height="900" fill="#0f1117"/>
-      <!-- 그리드 라인 -->
       <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
         <line x1="0" y1="100" x2="1440" y2="100"/><line x1="0" y1="200" x2="1440" y2="200"/>
         <line x1="0" y1="300" x2="1440" y2="300"/><line x1="0" y1="400" x2="1440" y2="400"/>
@@ -261,18 +256,14 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
         <line x1="600" y1="0" x2="600" y2="900"/><line x1="800" y1="0" x2="800" y2="900"/>
         <line x1="1000" y1="0" x2="1000" y2="900"/><line x1="1200" y1="0" x2="1200" y2="900"/>
       </g>
-      <!-- 우측 대시보드 패널 -->
       <rect x="820" y="60" width="580" height="780" rx="12" fill="rgba(36,41,56,0.7)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-      <!-- 대시보드 헤더 -->
       <rect x="820" y="60" width="580" height="44" rx="12" fill="rgba(46,52,71,0.9)"/>
       <rect x="820" y="92" width="580" height="12" fill="rgba(46,52,71,0.9)"/>
       <circle cx="844" cy="82" r="5" fill="#ff6060"/><circle cx="862" cy="82" r="5" fill="#ffbc2e"/><circle cx="880" cy="82" r="5" fill="#28c840"/>
       <rect x="900" y="74" width="120" height="16" rx="3" fill="rgba(255,255,255,0.06)"/>
 
-      <!-- TCR 사분면 차트 -->
       <rect x="844" y="120" width="250" height="220" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
       <text x="856" y="140" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">TCR 사분면</text>
-      <!-- 사분면 4칸 -->
       <rect x="850" y="148" width="110" height="100" rx="3" fill="rgba(76,175,125,0.08)" stroke="rgba(76,175,125,0.15)" stroke-width="1"/>
       <text x="870" y="198" font-size="10" fill="rgba(76,175,125,0.6)" font-family="sans-serif">Star ⭐</text>
       <rect x="968" y="148" width="110" height="100" rx="3" fill="rgba(232,160,69,0.06)" stroke="rgba(232,160,69,0.12)" stroke-width="1"/>
@@ -281,7 +272,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       <text x="860" y="295" font-size="10" fill="rgba(62,207,178,0.6)" font-family="sans-serif">Volume Driver</text>
       <rect x="968" y="254" width="110" height="78" rx="3" fill="rgba(232,92,92,0.08)" stroke="rgba(232,92,92,0.15)" stroke-width="1"/>
       <text x="988" y="295" font-size="10" fill="rgba(232,92,92,0.6)" font-family="sans-serif">Exit ⚠</text>
-      <!-- 데이터 포인트들 -->
       <circle cx="920" cy="185" r="7" fill="rgba(76,175,125,0.7)"/>
       <circle cx="900" cy="170" r="5" fill="rgba(76,175,125,0.5)"/>
       <circle cx="935" cy="200" r="9" fill="rgba(76,175,125,0.8)"/>
@@ -292,10 +282,8 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       <circle cx="1010" cy="280" r="5" fill="rgba(232,92,92,0.7)"/>
       <circle cx="1025" cy="295" r="6" fill="rgba(232,92,92,0.5)"/>
 
-      <!-- 마진율 바 차트 -->
       <rect x="844" y="356" width="528" height="180" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
       <text x="856" y="374" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">SKU별 실질마진율 (%)</text>
-      <!-- 바들 -->
       <rect x="858" y="395" width="32" height="120" rx="3" fill="rgba(76,175,125,0.6)"/>
       <rect x="900" y="420" width="32" height="95" rx="3" fill="rgba(76,175,125,0.45)"/>
       <rect x="942" y="440" width="32" height="75" rx="3" fill="rgba(232,160,69,0.5)"/>
@@ -308,11 +296,9 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       <rect x="1236" y="390" width="32" height="125" rx="3" fill="rgba(76,175,125,0.65)"/>
       <rect x="1278" y="408" width="32" height="107" rx="3" fill="rgba(76,175,125,0.5)"/>
       <rect x="1320" y="475" width="32" height="40" rx="3" fill="rgba(232,92,92,0.4)"/>
-      <!-- BEP 라인 -->
       <line x1="852" y1="460" x2="1362" y2="460" stroke="rgba(232,160,69,0.4)" stroke-width="1" stroke-dasharray="4,4"/>
       <text x="1320" y="456" font-size="8" fill="rgba(232,160,69,0.7)" font-family="monospace">BEP</text>
 
-      <!-- W값 트렌드 라인 -->
       <rect x="844" y="552" width="250" height="130" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
       <text x="856" y="570" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">W 가중치 분포</text>
       <polyline points="858,650 900,640 940,620 980,600 1020,615 1060,595 1082,610" fill="none" stroke="rgba(62,207,178,0.6)" stroke-width="2"/>
@@ -320,7 +306,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       <circle cx="940" cy="620" r="3" fill="rgba(62,207,178,0.8)"/>
       <circle cx="1060" cy="595" r="4" fill="rgba(232,160,69,0.9)"/>
 
-      <!-- 요약 수치 -->
       <rect x="1104" y="552" width="268" height="60" rx="6" fill="rgba(76,175,125,0.08)" stroke="rgba(76,175,125,0.15)" stroke-width="1"/>
       <text x="1120" y="575" font-size="10" fill="rgba(255,255,255,0.4)" font-family="sans-serif">Star SKU</text>
       <text x="1120" y="598" font-size="20" fill="rgba(76,175,125,0.9)" font-family="sans-serif" font-weight="bold">12개</text>
@@ -328,7 +313,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       <text x="1120" y="645" font-size="10" fill="rgba(255,255,255,0.4)" font-family="sans-serif">즉시 점검</text>
       <text x="1120" y="668" font-size="20" fill="rgba(232,92,92,0.9)" font-family="sans-serif" font-weight="bold">5개</text>
 
-      <!-- 하단 요약 바 -->
       <rect x="844" y="698" width="528" height="120" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
       <text x="856" y="716" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">시즌 총괄 요약</text>
       <text x="870" y="748" font-size="11" fill="rgba(255,255,255,0.35)" font-family="sans-serif">총 SKU</text>
@@ -360,7 +344,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- STATS BAR -->
 <div class="pain-bar">
   <div class="pain-item"><p class="pain-num">35%</p><p class="pain-label">100억 미만 브랜드<br>평균 이월재고율</p></div>
   <div class="pain-item"><p class="pain-num">21년</p><p class="pain-label">대표의 패션<br>현장 실무 경험</p></div>
@@ -368,7 +351,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   <div class="pain-item"><p class="pain-num">100억↓</p><p class="pain-label">전문 타겟<br>중소형 브랜드</p></div>
 </div>
 
-<!-- PROBLEM -->
 <section class="sec prob-sec" id="about">
   <div class="prob-header">
     <div class="sec-tag">Why STANCE</div>
@@ -383,7 +365,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- DASHBOARD / FEATURES -->
 <section class="sec dash-sec">
   <div class="dash-inner">
     <div class="dash-text">
@@ -409,7 +390,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
         </div>
       </div>
     </div>
-    <!-- 인라인 대시보드 미리보기 -->
     <div class="dash-visual">
       <div class="dash-visual-header">
         <div class="dvh-dot" style="background:#ff6060"></div>
@@ -419,11 +399,8 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       </div>
       <div class="dash-visual-body">
         <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg">
-          <!-- 배경 -->
           <rect width="480" height="340" fill="#1a1f2e"/>
-          <!-- 섹션 라벨 -->
           <text x="12" y="22" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">■ 포트폴리오 요약</text>
-          <!-- 요약 카드 4개 -->
           <rect x="8" y="30" width="104" height="60" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
           <text x="18" y="50" font-size="8" fill="rgba(255,255,255,0.35)" font-family="sans-serif">전체 SKU</text>
           <text x="18" y="75" font-size="22" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-weight="bold">77</text>
@@ -437,10 +414,8 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
           <text x="354" y="50" font-size="8" fill="rgba(255,255,255,0.35)" font-family="sans-serif">평균 실질마진</text>
           <text x="354" y="75" font-size="22" fill="rgba(62,207,178,0.85)" font-family="sans-serif" font-weight="bold">14.2%</text>
 
-          <!-- 마진율 바 차트 -->
           <text x="12" y="112" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">■ SKU별 실질마진율</text>
           <rect x="8" y="120" width="464" height="100" rx="5" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-          <!-- 바 -->
           <rect x="18" y="132" width="24" height="76" rx="2" fill="rgba(76,175,125,0.7)"/>
           <rect x="50" y="148" width="24" height="60" rx="2" fill="rgba(76,175,125,0.55)"/>
           <rect x="82" y="158" width="24" height="50" rx="2" fill="rgba(232,160,69,0.55)"/>
@@ -455,11 +430,9 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
           <rect x="370" y="155" width="24" height="53" rx="2" fill="rgba(232,160,69,0.5)"/>
           <rect x="402" y="130" width="24" height="78" rx="2" fill="rgba(76,175,125,0.75)"/>
           <rect x="434" y="170" width="24" height="38" rx="2" fill="rgba(232,92,92,0.4)"/>
-          <!-- BEP 라인 -->
           <line x1="12" y1="170" x2="468" y2="170" stroke="rgba(232,160,69,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
           <text x="440" y="166" font-size="7" fill="rgba(232,160,69,0.6)" font-family="monospace">BEP 10%</text>
 
-          <!-- 위험 패턴 -->
           <text x="12" y="242" font-size="9" fill="rgba(232,160,69,0.7)" font-family="monospace">■ 위험 패턴 감지</text>
           <rect x="8" y="250" width="140" height="50" rx="5" fill="rgba(232,92,92,0.08)" stroke="rgba(232,92,92,0.2)" stroke-width="1"/>
           <text x="18" y="268" font-size="8" fill="rgba(232,92,92,0.7)" font-family="sans-serif">🔴 독성 스타</text>
@@ -471,7 +444,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
           <text x="314" y="268" font-size="8" fill="rgba(76,175,125,0.7)" font-family="sans-serif">🟢 기회손실 SKU</text>
           <text x="314" y="288" font-size="18" fill="rgba(76,175,125,0.85)" font-family="sans-serif" font-weight="bold">8개 SKU</text>
 
-          <!-- 하단 -->
           <text x="12" y="318" font-size="8" fill="rgba(255,255,255,0.2)" font-family="monospace">STANCE Analysis Engine v3.2 · 2025 FW Season · 분석완료</text>
           <circle cx="462" cy="313" r="4" fill="rgba(76,175,125,0.7)"/>
           <text x="438" y="317" font-size="8" fill="rgba(76,175,125,0.6)" font-family="monospace">에러 0</text>
@@ -481,7 +453,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="sec svc-sec" id="services">
   <div style="text-align:center;max-width:560px;margin:0 auto;">
     <div class="sec-tag" style="justify-content:center;">Services</div>
@@ -531,7 +502,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- METHOD -->
 <section class="sec meth-sec" id="method">
   <div class="meth-inner">
     <div class="meth-sticky">
@@ -554,13 +524,11 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- FOUNDER MESSAGE -->
 <section class="sec" style="background:var(--ink2);" id="founder">
   <div class="founder-inner">
     <div>
-      <div class="founder-photo">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span>대표 사진</span>
+      <div class="founder-photo" style="padding: 0; overflow: hidden; border: none;">
+        <img src="https://github.com/jhan8326/-stance-website/blob/main/JULIAN.png?raw=true" alt="대표 사진" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
       </div>
     </div>
     <div>
@@ -584,7 +552,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- CALCULATOR -->
 <style>
 .adv-toggle{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;margin-bottom:6px;}
 .adv-toggle span{font-size:12px;color:var(--muted);}
@@ -659,7 +626,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
         <div class="field"><label>배송비 (브랜드 부담)</label><input type="number" id="c_ship" placeholder="3000" oninput="markDirty()"><span class="field-hint">원</span></div>
       </div>
 
-      <!-- 고급 설정 -->
       <div class="adv-toggle" id="advToggle" onclick="toggleAdv()">
         <span>고급 설정 (선택) — 반품률 포함 세부 변수 · 기본값 자동 적용 중</span>
         <span class="adv-chev">▼</span>
@@ -684,13 +650,11 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
       </div>
 
       <div class="calc-res" id="calc-res">
-        <!-- Zone -->
         <div class="zone-card" id="r-zone-card">
           <div class="zone-lbl" id="r-zone-lbl">—</div>
           <div class="zone-diag" id="r-zone-diag">—</div>
         </div>
 
-        <!-- 숫자 5개 -->
         <div class="res-cards-5">
           <div class="res-card"><p class="res-label">실질 마진</p><p class="res-val" id="r-margin">—</p><p class="res-label">원</p></div>
           <div class="res-card"><p class="res-label">실질 마진율</p><p class="res-val" id="r-rate">—</p><p class="res-label">순매출 기준</p></div>
@@ -699,18 +663,14 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
           <div class="res-card"><p class="res-label">LTV / CAC</p><p class="res-val" id="r-ratio">—</p></div>
         </div>
 
-        <!-- 원인 -->
         <p class="why-label">왜 이 숫자가 나왔나</p>
         <ul class="why-list" id="r-causes"></ul>
 
-        <!-- 가이드 -->
         <p class="why-label" style="margin-top:14px;">구조적으로 바꿔야 할 것들</p>
         <ul class="guide-list" id="r-guides"></ul>
 
-        <!-- CTA -->
         <div class="cta-zone" id="r-cta"></div>
 
-        <!-- 시뮬레이션 -->
         <div class="sim-wrap" id="r-sim">
           <p class="sim-label">변수 시뮬레이션 — 슬라이더 조정 시 실시간 반영</p>
           <div class="sl-row"><label>반품률</label><input type="range" id="sl_ret" min="0" max="40" step="0.5" value="25" oninput="syncSl('sl_ret','c_ret',this.value,'%');runCalcSilent()"><span class="sl-val" id="sl_ret_v">25%</span></div>
@@ -724,7 +684,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:40px 60p
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="sec cont-sec" id="contact">
   <div class="cont-inner">
     <div>
