@@ -809,13 +809,15 @@ function submitForm(e) {
   const select = form.querySelector('select');
   const textarea = form.querySelector('textarea');
 
+  /* index.html 하단 submitForm 함수 내부 */
   const templateParams = {
-    brand_name: inputs[0].value,    // 브랜드명
-    manager_name: inputs[1].value,  // 담당자명
-    user_email: inputs[2].value,    // 고객 이메일
-    service_type: select.value,     // 문의 서비스
-    message: textarea.value,        // 남기실 말씀
-    to_email: 'jhan8326@gmail.com'  // 수신자 (나)
+    // querySelector를 사용하여 순서가 바뀌어도 정확한 값을 가져오도록 수정
+    brand_name: form.querySelector('input[placeholder="브랜드명"]').value,
+    manager_name: form.querySelector('input[placeholder="성함"]').value,
+    user_email: form.querySelector('input[type="email"]').value,
+    service_type: form.querySelector('select').value,
+    message: form.querySelector('textarea').value,
+    to_email: 'jhan8326@gmail.com'
   };
 
   // EmailJS 발송 실행
